@@ -35,6 +35,6 @@ jobs:
         git config pull.rebase false
         git pull --all
         git branch
-        git checkout origin/${{env.MASTER_BRANCH}}
-        git pull origin/${{env.MASTER_BRANCH}}
+        git checkout ${{env.MY_REPO}} origin/${{env.MASTER_BRANCH}}
+        git pull ${{env.MY_REPO}} origin/${{env.MASTER_BRANCH}}
         git push
