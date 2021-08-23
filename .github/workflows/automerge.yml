@@ -36,5 +36,5 @@ jobs:
         git pull --all
         git branch
         git checkout origin/${{env.MASTER_BRANCH}}
-        git pull
+        git pull origin/${{env.MASTER_BRANCH}}
         git push
