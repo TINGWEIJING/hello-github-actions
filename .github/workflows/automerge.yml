@@ -33,9 +33,7 @@ jobs:
         git config user.name "Automerge Bot"
         git config user.email "bot@example.com"
         git config pull.rebase false
-        git remote update
         git pull --all
         git branch
         git checkout origin/${{env.MASTER_BRANCH}}
-        git pull
-        git push
+        git status
