@@ -17,6 +17,10 @@ env:
   # replace "master" with your master branch name
   MASTER_BRANCH: model
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   merge:
     runs-on: ubuntu-latest
