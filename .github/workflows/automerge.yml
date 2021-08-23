@@ -33,7 +33,7 @@ jobs:
         git config user.name "Automerge Bot"
         git config user.email "bot@example.com"
         git config pull.rebase false
-        git pull -all
+        git pull --all
         git branch
         git checkout ${{env.MASTER_BRANCH}}
         git pull
