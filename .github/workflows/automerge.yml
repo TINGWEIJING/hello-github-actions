@@ -6,7 +6,7 @@ env:
   # replace "github_username" with your GitHub username
   # replace "github.com/username/repo.git" with your GitHub repo path
   # do NOT replace ${{secrets.GITHUB_TOKEN}}, GitHub will take care of it
-  MY_REPO: https://TINGWEIJING:${{secrets.GITHUB_TOKEN}}@github.com/TINGWEIJING/NLP-Model-Serving.git
+  MY_REPO: https://TINGWEIJING:${{secrets.TRIAL_TOKEN}}@github.com/TINGWEIJING/NLP-Model-Serving.git
 
   # replace "long-lived_branch_name" with your branch name
   MY_BRANCH: main
@@ -30,8 +30,6 @@ jobs:
       run: |
         git clone ${{env.MY_REPO}} -b ${{env.MY_BRANCH}} tmp
         cd tmp
-        git credential-manager uninstall
-        git credential-manager install
         git config user.name "Automerge Bot"
         git config user.email "bot@example.com"
         git config pull.rebase false
