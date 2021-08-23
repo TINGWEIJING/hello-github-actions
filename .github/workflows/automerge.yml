@@ -35,4 +35,4 @@ jobs:
         git config pull.rebase false
         git pull origin ${{env.MASTER_BRANCH}}
         git checkout ${{env.MASTER_BRANCH}}
-        git push -u origin ${{env.MASTER_BRANCH}}
+        git push
