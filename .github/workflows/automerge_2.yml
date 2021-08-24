@@ -27,6 +27,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - with:
+        token: ${{ secrets.TRIAL_TOKEN }}
     - name: Create report file
       run: date +%s > report.txt
     - name: Commit report
@@ -35,4 +37,5 @@ jobs:
         git config --global user.email 'tingweijignting2000@gmail.com'
         git add .
         git commit -am "Automated report"
+        git remote set-url --push origin ${{env.MY_REPO}}
         git push
