@@ -27,7 +27,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - with:
+      with:
         token: ${{ secrets.TRIAL_TOKEN }}
     - name: Create report file
       run: date +%s > report.txt
