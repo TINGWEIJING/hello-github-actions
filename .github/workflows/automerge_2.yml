@@ -13,7 +13,7 @@ env:
   TARGET_BRANCH_3: api-nlp-smry-zh
   TARGET_BRANCH_4: api-nlp-zh2en
   KEEP_ENV_GIT: |
-    git merge --no-ff --no-commit ${{ CURRENT_BRANCH }}
+    git merge --no-ff --no-commit main
     git reset HEAD selection.env
     git checkout -- selection.env
     git commit -m "Keep selection.env"
