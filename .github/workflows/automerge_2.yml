@@ -1,8 +1,9 @@
 name: Automerge_2
 
-on: push
-  branches:
-    - main
+on:
+  push:
+    branches:
+      - main
 
 env:
   MY_REPO: https://TINGWEIJING:${{secrets.TRIAL_TOKEN}}@github.com/TINGWEIJING/hello-github-actions.git
