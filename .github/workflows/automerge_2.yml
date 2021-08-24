@@ -12,6 +12,11 @@ env:
   TARGET_BRANCH_2: api-nlp-smry-en
   TARGET_BRANCH_3: api-nlp-smry-zh
   TARGET_BRANCH_4: api-nlp-zh2en
+  KEEP_ENV_GIT: |
+    git merge --no-ff --no-commit ${{ env.CURRENT_BRANCH }}
+    git reset HEAD selection.env
+    git checkout -- selection.env
+    git commit -m "Keep selection.env"
 
 permissions:
   contents: read
@@ -33,26 +38,14 @@ jobs:
         git config --global user.email 'tingweijignting2000@gmail.com'
         git branch
         git switch -c ${{ env.TARGET_BRANCH_1 }} --track origin/${{ env.TARGET_BRANCH_1 }}
-        git merge --no-ff --no-commit ${{ env.CURRENT_BRANCH }}
-        git reset HEAD selection.env
-        git checkout -- selection.env
-        git commit -m "Merge with ignore"
+        ${{ env.KEEP_ENV_GIT }}
         git push -f
         git switch -c ${{ env.TARGET_BRANCH_2 }} --track origin/${{ env.TARGET_BRANCH_2 }}
-        git merge --no-ff --no-commit ${{ env.CURRENT_BRANCH }}
-        git reset HEAD selection.env
-        git checkout -- selection.env
-        git commit -m "Merge with ignore"
+        ${{ env.KEEP_ENV_GIT }}
         git push -f
         git switch -c ${{ env.TARGET_BRANCH_3 }} --track origin/${{ env.TARGET_BRANCH_3 }}
-        git merge --no-ff --no-commit ${{ env.CURRENT_BRANCH }}
-        git reset HEAD selection.env
-        git checkout -- selection.env
-        git commit -m "Merge with ignore"
+        ${{ env.KEEP_ENV_GIT }}
         git push -f
         git switch -c ${{ env.TARGET_BRANCH_4 }} --track origin/${{ env.TARGET_BRANCH_4 }}
-        git merge --no-ff --no-commit ${{ env.CURRENT_BRANCH }}
-        git reset HEAD selection.env
-        git checkout -- selection.env
-        git commit -m "Merge with ignore"
+        ${{ env.KEEP_ENV_GIT }}
         git push -f
