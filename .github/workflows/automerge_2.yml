@@ -1,0 +1,46 @@
+name: Automerge_2
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  MY_REPO: https://TINGWEIJING:${{secrets.TRIAL_TOKEN}}@github.com/TINGWEIJING/hello-github-actions.git
+  CURRENT_BRANCH: main
+  TARGET_BRANCH_1: api-nlp-en2zh
+  TARGET_BRANCH_2: api-nlp-smry-en
+  TARGET_BRANCH_3: api-nlp-smry-zh
+  TARGET_BRANCH_4: api-nlp-zh2en
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.TRIAL_TOKEN }}
+        fetch-depth: 0
+        ref: ${{ CURRENT_BRANCH }}
+    - name: Merge into target branches
+      run: |
+        git config --global user.name 'TINGWEIJING'
+        git config --global user.email 'tingweijignting2000@gmail.com'
+        git branch
+        git switch -c ${{ TARGET_BRANCH_1 }} --track origin/${{ TARGET_BRANCH_1 }}
+        git merge TING
+        git push -f
+        git switch -c ${{ TARGET_BRANCH_2 }} --track origin/${{ TARGET_BRANCH_2 }}
+        git merge TING
+        git push -f
+        git switch -c ${{ TARGET_BRANCH_3 }} --track origin/${{ TARGET_BRANCH_3 }}
+        git merge TING
+        git push -f
+        git switch -c ${{ TARGET_BRANCH_4 }} --track origin/${{ TARGET_BRANCH_4 }}
+        git merge TING
+        git push -f
