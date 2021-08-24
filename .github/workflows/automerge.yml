@@ -1,41 +1,41 @@
-name: Automerge
+# name: Automerge
 
-on: push
+# on: push
 
-env:
-  # replace "github_username" with your GitHub username
-  # replace "github.com/username/repo.git" with your GitHub repo path
-  # do NOT replace ${{secrets.GITHUB_TOKEN}}, GitHub will take care of it
-  MY_REPO: https://TINGWEIJING:${{secrets.TRIAL_TOKEN}}@github.com/TINGWEIJING/hello-github-actions.git
+# env:
+#   # replace "github_username" with your GitHub username
+#   # replace "github.com/username/repo.git" with your GitHub repo path
+#   # do NOT replace ${{secrets.GITHUB_TOKEN}}, GitHub will take care of it
+#   MY_REPO: https://TINGWEIJING:${{secrets.TRIAL_TOKEN}}@github.com/TINGWEIJING/hello-github-actions.git
 
-  # replace "long-lived_branch_name" with your branch name
-  MY_BRANCH: main
+#   # replace "long-lived_branch_name" with your branch name
+#   MY_BRANCH: main
 
-  # replace it with the path to master repo
-  MASTER_REPO: https://github.com/TINGWEIJING/hello-github-actions.git
+#   # replace it with the path to master repo
+#   MASTER_REPO: https://github.com/TINGWEIJING/hello-github-actions.git
 
-  # replace "master" with your master branch name
-  MASTER_BRANCH: model
+#   # replace "master" with your master branch name
+#   MASTER_BRANCH: model
 
-permissions:
-  contents: read
-  pull-requests: write
+# permissions:
+#   contents: read
+#   pull-requests: write
 
-jobs:
-  merge:
-    runs-on: ubuntu-latest
+# jobs:
+#   merge:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Merge with master
-      run: |
-        git clone ${{env.MY_REPO}} tmp
-        cd tmp
-        git config user.name "Automerge Bot"
-        git config user.email "bot@example.com"
-        git config pull.rebase false
-        git pull --all
-        git branch
-        git checkout ${{env.MY_REPO}} origin/${{env.MASTER_BRANCH}}
-        git pull ${{env.MY_REPO}} origin/${{env.MASTER_BRANCH}}
-        git push
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Merge with master
+#       run: |
+#         git clone ${{env.MY_REPO}} tmp
+#         cd tmp
+#         git config user.name "Automerge Bot"
+#         git config user.email "bot@example.com"
+#         git config pull.rebase false
+#         git pull --all
+#         git branch
+#         git checkout ${{env.MY_REPO}} origin/${{env.MASTER_BRANCH}}
+#         git pull ${{env.MY_REPO}} origin/${{env.MASTER_BRANCH}}
+#         git push

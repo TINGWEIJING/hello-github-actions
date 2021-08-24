@@ -1,0 +1,37 @@
+name: Automerge_2
+
+on: push
+
+env:
+  # replace "github_username" with your GitHub username
+  # replace "github.com/username/repo.git" with your GitHub repo path
+  # do NOT replace ${{secrets.GITHUB_TOKEN}}, GitHub will take care of it
+  MY_REPO: https://TINGWEIJING:${{secrets.TRIAL_TOKEN}}@github.com/TINGWEIJING/hello-github-actions.git
+
+  # replace "long-lived_branch_name" with your branch name
+  MY_BRANCH: main
+
+  # replace it with the path to master repo
+  MASTER_REPO: https://github.com/TINGWEIJING/hello-github-actions.git
+
+  # replace "master" with your master branch name
+  MASTER_BRANCH: model
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Create report file
+      run: date +%s > report.txt
+    - name: Commit report
+      run: |
+        git config --global user.name 'TINGWEIJING'
+        git config --global user.email 'tingweijignting2000@gmail.com'
+        git commit -am "Automated report"
+        git push
