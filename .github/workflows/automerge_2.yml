@@ -36,4 +36,6 @@ jobs:
         git config --global user.email 'tingweijignting2000@gmail.com'
         git branch
         git switch -c model --track origin/model
-        git branch
+        git merge TING
+        git commit -m "Merge from TING"
+        git push
