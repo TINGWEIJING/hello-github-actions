@@ -34,5 +34,5 @@ jobs:
         git config --global user.name 'TINGWEIJING'
         git config --global user.email 'tingweijignting2000@gmail.com'
         git branch
-        git checkout origin model
+        git checkout model
         git branch
