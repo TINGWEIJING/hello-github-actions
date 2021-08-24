@@ -33,14 +33,14 @@ jobs:
         git config --global user.email 'tingweijignting2000@gmail.com'
         git branch
         git switch -c ${{ env.TARGET_BRANCH_1 }} --track origin/${{ env.TARGET_BRANCH_1 }}
-        git merge TING
+        git merge ${{ env.CURRENT_BRANCH }}
         git push -f
         git switch -c ${{ env.TARGET_BRANCH_2 }} --track origin/${{ env.TARGET_BRANCH_2 }}
-        git merge TING
+        git merge ${{ env.CURRENT_BRANCH }}
         git push -f
         git switch -c ${{ env.TARGET_BRANCH_3 }} --track origin/${{ env.TARGET_BRANCH_3 }}
-        git merge TING
+        git merge ${{ env.CURRENT_BRANCH }}
         git push -f
         git switch -c ${{ env.TARGET_BRANCH_4 }} --track origin/${{ env.TARGET_BRANCH_4 }}
-        git merge TING
+        git merge ${{ env.CURRENT_BRANCH }}
         git push -f
