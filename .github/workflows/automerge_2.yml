@@ -26,21 +26,21 @@ jobs:
       with:
         token: ${{ secrets.TRIAL_TOKEN }}
         fetch-depth: 0
-        ref: ${{ CURRENT_BRANCH }}
+        ref: ${{ env.CURRENT_BRANCH }}
     - name: Merge into target branches
       run: |
         git config --global user.name 'TINGWEIJING'
         git config --global user.email 'tingweijignting2000@gmail.com'
         git branch
-        git switch -c ${{ TARGET_BRANCH_1 }} --track origin/${{ TARGET_BRANCH_1 }}
+        git switch -c ${{ env.TARGET_BRANCH_1 }} --track origin/${{ env.TARGET_BRANCH_1 }}
         git merge TING
         git push -f
-        git switch -c ${{ TARGET_BRANCH_2 }} --track origin/${{ TARGET_BRANCH_2 }}
+        git switch -c ${{ env.TARGET_BRANCH_2 }} --track origin/${{ env.TARGET_BRANCH_2 }}
         git merge TING
         git push -f
-        git switch -c ${{ TARGET_BRANCH_3 }} --track origin/${{ TARGET_BRANCH_3 }}
+        git switch -c ${{ env.TARGET_BRANCH_3 }} --track origin/${{ env.TARGET_BRANCH_3 }}
         git merge TING
         git push -f
-        git switch -c ${{ TARGET_BRANCH_4 }} --track origin/${{ TARGET_BRANCH_4 }}
+        git switch -c ${{ env.TARGET_BRANCH_4 }} --track origin/${{ env.TARGET_BRANCH_4 }}
         git merge TING
         git push -f
