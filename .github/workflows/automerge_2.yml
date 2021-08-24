@@ -37,5 +37,4 @@ jobs:
         git branch
         git switch -c model --track origin/model
         git merge TING
-        git commit -m "Merge from TING"
         git push
